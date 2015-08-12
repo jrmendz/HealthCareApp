@@ -1,0 +1,157 @@
+PATIENT collection:
+---------------------------
+{
+  "_id": "P000001",
+  "info": {
+    "name": "John Doe",
+    "address": "123 Midway Street",
+    "city": "city_name",
+    "state": "state_name",
+    "zip": "zip_code_5",
+    "phone": "703-555-1000",
+    "email": "patient@gmail.com",
+    "hasNurseNow": true
+  },
+  "dailyVitals": {
+    "collectionDate": "2015-07-10T14:25:32.404Z",
+    "vData": [
+      {
+        "idNurse": "N000001",
+        "clockIn": "2015-07-10T14:25:32.404Z",
+        "clockOut": "2015-07-10T14:25:32.404Z",
+        "vitals": [
+          {
+            "createTime": "2015-07-10T14:25:32.405Z",
+            "type": "Blood Pressure",
+            "data": {
+              "systolic": 120,
+              "diastolic": 80
+            },
+            "warningSentTo": "7035551000"
+          },
+          {
+            "createTime": "2015-07-10T14:25:32.407Z",
+            "type": "Temperature",
+            "data": {
+              "Fahrenheit": 97.6
+            }
+          }
+        ],
+        "signatureURL": "www.itxtit.com"
+      }
+    ]
+  }
+}
+
+_id  s = P000001
+info
+  name s = string
+  address s = 123 Midway Street
+  city s = city_name
+  state s = state_name
+  zip s = zip_code_5
+  phone s = 703-555-1000
+  email s = patient@gmail.com
+  hasNurseNow b = true
+dailyVitals
+  collectionDate d =
+  vData[0]
+    idNurse s = N000001
+    clockIn d =
+    clockOut d =
+    vitals[0] 
+      createTime d 
+      type s = Blood Pressure
+      data
+        systolic n = 120
+        diastolic n = 80
+      warningSentTo s = 7035551000
+    vitals[1] 
+      createTime d 
+      type s = Temperature
+      data
+        Fahrenheit  n = 97.6
+    signatureURL s = www.itxtit.com
+	
+	---------------------------------------------------------------
+	NURSE collection:
+	
+{
+  "_id": "N000001",
+  "info": {
+    "name": "string",
+    "address": "123 Midway Street",
+    "city": "city_name",
+    "state": "state_name",
+    "zip": "zip_code_5",
+    "phone": "703-555-1000",
+    "email": "nurse@gmail.com",
+    "idSupervisor": "S000001"
+  },
+  "assignedPatients": [
+    {
+      "idPatient": "P000001"
+    },
+    {
+      "idPatient": "P000004"
+    }
+  ],
+  "careProvided": [
+    {
+      "careDate": "2015-07-10T14:46:15.016Z",
+      "idPatient": "P000001",
+      "checkInTime": "2015-07-10T14:46:15.016Z",
+      "checkOutTime": null,
+      "warnings": 2
+    }
+  ]
+}
+
+_id  s = N000001
+info
+  name s = string
+  address s = 123 Midway Street
+  city s = city_name
+  state s = state_name
+  zip s = zip_code_5
+  phone s = 703-555-1000
+  email s = nurse@gmail.com
+  idSupervisor s = S000001
+assignedPatients[0]
+  idPatient s = P000001
+assignedPatients[1]
+  idPatient s = P000004
+careProvided[0]
+  careDate d =
+  idPatient s = P000001
+  checkInTime d = 
+  checkOutTime d = null
+  warnings n = 2
+	
+	---------------------------------------------------------------
+	SUPERVISOR collection:
+
+{
+  "_id": "S000001",
+  "info": {
+    "name": "string",
+    "address": "123 Midway Street",
+    "city": "city_name",
+    "state": "state_name",
+    "zip": "zip_code_5",
+    "phone": "703-555-1000",
+    "email": "supervisor@gmail.com",
+    "isOnDuty": true
+  }
+}
+
+_id  s = S000001
+info
+  name s = string
+  address s = 123 Midway Street
+  city s = city_name
+  state s = state_name
+  zip s = zip_code_5
+  phone s = 703-555-1000
+  email s = supervisor@gmail.com
+  isOnDuty b = true

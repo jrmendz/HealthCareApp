@@ -1,0 +1,105 @@
+<template name="patientInfo">
+<div class="container">
+    {{isNull}}
+    <div class="template-patient">
+        <div class="row">
+            <nav>
+              <ul class="pager">
+                <li class="previous"><a href="/" id="back_home"><span aria-hidden="true">&larr;</span>Back</a></li>
+              </ul>
+            </nav>
+            <div class="page-header">
+                <div class="col-sm-12">
+                    <div class="col-sm-8">
+                        <h1 class="blue">Patient: <b>{{getInfo.info.name}}</b></h1>
+                    </div>
+                    <div class="col-sm-4" align="right">
+                        <p align="left"><h5><b>Contact No:</b> {{getInfo.info.phone}}</h5></p>
+                        <p align="left"><h5><b>Address:</b> {{getInfo.info.address}}</h5></p>
+                    </div>
+                </div>
+            </div>
+            <h3 align="center">Vital Health Info Collection </h3>
+            <div class="col-sm-12">
+                <div>
+                    {{>addVitalHealthInfo}}
+                </div>
+            </div>
+            <!--end of col-sm-12-->
+            
+        </div>
+    </div>
+</div>
+</template>
+
+<template name="addVitalHealthInfo">
+<form class="form-horizontal" id="myForm">
+    <div class="form-group vitals" id="moreVitals1" >
+        <h2 id="reference" name="reference" class="heading-reference">Collection #1</h2>
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                <label for="type">Type</label>
+                <select class="form-control type" name="type" id="type-1" data-type="1" required>
+                   <option disabled="disabled" selected="selected" value="">Please Select</option>
+                   <option value="Temperature">Temperature</option>
+                   <option value="Blood Pressure">Blood Pressure</option>
+                   <option value="Heart Rate">Heart Rate</option>
+                   <option value="Respiration">Respiration</option>
+                </select>
+            </div>
+            <!--end of col-sm-4-->
+            <div class="col-sm-4">
+                <div class="not-blood-pressure" id="not-blood-pressure-1">
+                    <label for="type">Data</label>
+                    <input type="number" class="form-control one-input" id="one-input-1" name="oneInput" placeholder="">
+                </div>
+                <div class="blood-pressure" id="blood-pressure-1" style="display: none">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label for="systolic">Systolic</label>
+                            <input type="number" class="form-control systolic" id="systolic-1" name="systolic" placeholder="">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="diastolic">Diastolic</label>
+                            <input type="number" class="form-control diastolic" id="diastolic-1" name="diastolic" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of col-sm-4-->
+            <div class="col-sm-4">
+                <label for=""> Add/Cancel</label><br>
+                <div class="btn-group" id="action">
+                    <button type="button" class="btn btn-danger removeVitals" data-index="1"><span class='fa fa-times-circle-o'></span> Remove</button>
+                    <button type="submit" class="btn btn-primary add" id="add-1" data-index="1"><span class='fa fa-check'></span> Add </button>
+                </div>
+            </div>
+            <!--end of col-sm-6-->
+
+            <br>
+        </div>
+
+    </div>
+    <!--end of form-group-->
+    <div class="error">
+
+    </div>
+    <div class="col-sm-12">
+        <div class="col-sm-12">
+            <div class="btn-group" id="action">
+                <button type="button" class="btn btn-primary addVitals">+ More Vitals</button>
+            </div>
+        </div>
+    </div>
+    <!--end of col-sm-12-->
+
+    <div class="modal-footer">
+        <button class="btn btn-default" id="close" type="reset">Cancel
+        </button>
+        <input type="submit" class="btn btn-primary" id="saveVital" value="Save Info"/>
+     </div>
+    <!-- end of modal-footer -->
+</form>
+<!-- end-of-form -->
+</template>
+

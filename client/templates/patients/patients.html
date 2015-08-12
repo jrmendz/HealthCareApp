@@ -1,0 +1,33 @@
+<template name="patients">
+    <div class="template-home">
+        <div class="page-header">
+            <h1><b>Healthcare App</b></h1>
+        </div>
+        {{#if isSelected}}
+            {{>clockIn}}
+        {{/if}}
+        <div class="row">
+            {{#each patients}}
+            <a href="#" id="patient_id">
+                <div class="col-sm-4">
+                  <div class="tile blue">
+                    <h3 class="title"><b>{{ info.name }}</b></h3>
+                    <p>{{ info.phone }}</p>
+                    <p>{{ info.address }}</p>
+                  </div>
+                </div> 
+            </a>
+             {{/each}}
+        </div>
+        
+    </div>
+</template>
+
+<template name="clockIn">
+  <div class="template-clock-in">
+    <div class="page-header text-center">
+      <h1><a class="btn btn-lg btn-success" id="clockIn" href="/patient">Clock In</a></h1>
+    </div>
+  </div>
+</template>
+
